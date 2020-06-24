@@ -1,5 +1,5 @@
 module BSF
-  def BsfAsc(value)
+  def bsfAsc(value)
     count = value.length
     i = 0
     while i < count
@@ -17,7 +17,7 @@ module BSF
   end
 
 
-  def BsfDesc(value)
+  def bsfDesc(value)
     count = value.length
     i = 0
     while i < count
@@ -34,7 +34,7 @@ module BSF
     return value
   end
 
-  def BsfAsc_for(value)
+  def bsfAsc_for(value)
     count = value.length - 1
     for i in 0..count
       #p value
@@ -47,7 +47,7 @@ module BSF
     return value
   end
 
-  def BsfDesc_for(value)
+  def bsfDesc_for(value)
     count = value.length - 1
     for i in 0..count
       #p value

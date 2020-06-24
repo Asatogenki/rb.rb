@@ -9,34 +9,31 @@ class Selection
   include BSF
   include SSF
 
-  def selectionSortFunc(n)
+  def Ssf(n)
     p ssfAsc(n)
     p ssfDesc(n)
     puts "//////////////////////////"
     return "選択ソートです"
   end
 
-  def bubbleSearchFunc(n,f)
-    if f == 1
-      p BsfAsc(n)
-      p BsfDesc(n)
+  def Bsf(n,y)
+    if y == 1
+      p bsfAsc(n)
+      p bsfDesc(n)
       puts "//////////////////////////"
       puts "バブルソートです"
-    end
-      p BsfAsc_for(n)
-      p BsfDesc_for(n)
+    else
+      p bsfAsc_for(n)
+      p bsfDesc_for(n)
       puts "//////////////////////////"
-      puts "for文を使ったバブルソートです"
+      puts"for文を使ったバブルソートです"
+      return 
+    end
   end
-
 end
 
-numbers = (1..100).to_a.shuffle
+ns = (1..100).to_a.shuffle
+selection = Selection.new
 
-selection3 = Selection.new
-Bsf_f = selection3.bubbleSearchFunc(numbers,0)
-Bsf = selection3.bubbleSearchFunc(numbers,1)
-Ssf = selection3.selectionSortFunc(numbers)
 
-# puts Bsf
-puts Bsf
+selection.Bsf(ns,0)
