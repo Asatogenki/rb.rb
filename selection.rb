@@ -1,44 +1,42 @@
 require 'benchmark'
+require './selection/bubbleSearchFunc'
+require './selection/selectionSortFunc'
 
-def selectionSortFuncAsc(value)
-  i = 0
-  while i < value.length
-    minNumber = i
-    staNumber = i + 1
-    while staNumber < value.length
-      if value[staNumber] < value[minNumber]
-        minNumber = staNumber
-      end
-      staNumber += 1
-    end
-    value[i],value[minNumber] = value[minNumber],value[i]
-    i += 1
+
+class Selection
+  
+
+  include BSF
+  include SSF
+
+  def selectionSortFunc(n)
+    p ssfAsc(n)
+    p ssfDesc(n)
+    puts "//////////////////////////"
+    return "選択ソートです"
   end
-  return value
-end
 
-
-def selectionSortFuncDesc(value)
-  i = 0
-  while i < value.length
-    maxNumber = i # 初期値
-    staNumber = i + 1 # 初期値
-    # 最大値を検索する処理
-    while staNumber < value.length
-      if value[staNumber] > value[maxNumber]
-        maxNumber = staNumber
-      end
-      staNumber += 1
+  def bubbleSearchFunc(n,f)
+    if f == 1
+      p BsfAsc(n)
+      p BsfDesc(n)
+      puts "//////////////////////////"
+      puts "バブルソートです"
     end
-    # 最大値を並びかえる処理
-    value[i], value[maxNumber] = value[maxNumber], value[i]
-    i += 1
+      p BsfAsc_for(n)
+      p BsfDesc_for(n)
+      puts "//////////////////////////"
+      puts "for文を使ったバブルソートです"
   end
-  return value
+
 end
 
 numbers = (1..100).to_a.shuffle
 
-p selectionSortFuncAsc(numbers)
+selection3 = Selection.new
+Bsf_f = selection3.bubbleSearchFunc(numbers,0)
+Bsf = selection3.bubbleSearchFunc(numbers,1)
+Ssf = selection3.selectionSortFunc(numbers)
 
-p selectionSortFuncDesc(numbers)
+# puts Bsf
+puts Bsf
